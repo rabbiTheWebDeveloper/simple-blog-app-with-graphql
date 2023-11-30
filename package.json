@@ -1,0 +1,20 @@
+{
+  "name": "simple-blog-app-with-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts"
+  },
+  "repository": "https://github.com/rabbiTheWebDeveloper/simple-blog-app-with-graphql.git",
+  "author": "S M AL RABBI <rabbithedeveloper@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@types/node": "^20.10.1",
+    "graphql": "^16.8.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
