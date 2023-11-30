@@ -1,2 +1,2 @@
-const IsName = ' The rabbi the developer '
-console.log('Hello' + IsName)
+const sName = ' The rabbi the developer '
+console.log('Hello' + sName)
