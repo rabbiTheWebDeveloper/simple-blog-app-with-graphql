@@ -1,2 +1,2 @@
-const sName = ' The rabbi the developer '
+const sName : string = ' The rabbi the developer '
 console.log('Hello' + sName)

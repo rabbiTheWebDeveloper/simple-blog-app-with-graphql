@@ -7,7 +7,7 @@
   "author": "S M AL RABBI <rabbithedeveloper@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts"
+    "dev": "nodemon src/index.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.9.5",
