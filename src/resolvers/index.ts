@@ -10,6 +10,18 @@ export const resolvers = {
   },
   Mutation: {
     signup: async (parent: any, args: any, context: any) => {
+      const isExist = await prisma.user.findFirst({
+        where: {
+          email: args.email
+        }
+        
+      })
+      if(isExist){
+        return {
+          userError: "User Already Exist",
+          token: null
+        }
+      }
       // return await prisma.user.create({
       //   data: {
       //     email: args.email,
