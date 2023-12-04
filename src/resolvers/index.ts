@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 export const resolvers = {
@@ -15,14 +16,15 @@ export const resolvers = {
       //     password: args.password,
       //   },
       // });
-      return await prisma.user.create({
-        data: {
-          name: args.name,
-          email: args.email,
-          password: args.password,
-        },
-      })
-      console.log(args);
+      const hasgPassword = await bcrypt.hash(args.password, 10)
+      // return await prisma.user.create({
+      //   data: {
+      //     name: args.name,
+      //     email: args.email,
+      //     password: args.password,
+      //   },
+      // })
+      console.log(hasgPassword);
     },
   }
 };
