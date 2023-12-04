@@ -32,7 +32,6 @@ model User {
   updatedAt DateTime @updatedAt
   Post      Post[]
   Profile   Profile?
-
   @@map("user")
 }
 
