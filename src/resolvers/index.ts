@@ -30,30 +30,20 @@ export const resolvers = {
           password: hasgPassword,
         },
       });
-      console.log(newUser);
-      
+      if (args.bio) {
+        await prisma.profile.create({
+          data: {
+            bio: args.bio,
+            userId: newUser.id,
+          },
+        });
+      }
       const token = await jwtHelper({ userId: newUser.id });
-      console.log(token);
-      
+
       return {
         userError: null,
         token: token,
       };
-      // return await prisma.user.create({
-      //   data: {
-      //     email: args.email,
-      //     password: args.password,
-      //   },
-      // });
-
-      // return await prisma.user.create({
-      //   data: {
-      //     name: args.name,
-      //     email: args.email,
-      //     password: args.password,
-      //   },
-      // })
-      console.log(hasgPassword);
     },
     login: async (parent: any, args: any, context: any) => {
       const user = await prisma.user.findFirst({
@@ -79,6 +69,6 @@ export const resolvers = {
         userError: null,
         token: token,
       };
-    }
+    },
   },
 };
