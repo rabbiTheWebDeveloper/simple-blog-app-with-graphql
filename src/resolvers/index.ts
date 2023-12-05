@@ -30,7 +30,11 @@ export const resolvers = {
           password: hasgPassword,
         },
       });
+      console.log(newUser);
+      
       const token = await jwtHelper({ userId: newUser.id });
+      console.log(token);
+      
       return {
         userError: null,
         token: token,
@@ -51,5 +55,30 @@ export const resolvers = {
       // })
       console.log(hasgPassword);
     },
+    login: async (parent: any, args: any, context: any) => {
+      const user = await prisma.user.findFirst({
+        where: {
+          email: args.email,
+        },
+      });
+      if (!user) {
+        return {
+          userError: "User Not Found",
+          token: null,
+        };
+      }
+      const isMatch = await bcrypt.compare(args.password, user.password);
+      if (!isMatch) {
+        return {
+          userError: "Wrong Password",
+          token: null,
+        };
+      }
+      const token = await jwtHelper({ userId: user.id });
+      return {
+        userError: null,
+        token: token,
+      };
+    }
   },
 };
