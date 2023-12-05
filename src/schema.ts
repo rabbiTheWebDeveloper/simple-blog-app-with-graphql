@@ -9,8 +9,8 @@ type Mutation {
 }
 
 type UserPayload {
-  userError: String!
-  token: String!
+  userError: String
+  token: String
 }
   type User {
     name: String
