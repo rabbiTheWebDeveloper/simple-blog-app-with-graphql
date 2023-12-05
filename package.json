@@ -6,7 +6,9 @@
   "author": "S M AL RABBI <rabbithedeveloper@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@apollo/server": "^4.9.5",
